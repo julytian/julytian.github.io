@@ -7,6 +7,7 @@
       <title><![CDATA[微信小程序授权权处理]]></title>
       <url>http://julytian.coding.me/2017/04/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%88%E6%9D%83%E6%9D%83%E5%A4%84%E7%90%86/</url>
       <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们在编写微信小程序登录页时，碰到一个大坑。一般搜索安装小程序打开页面首先都会提示你是否授权，授权就表示我们可以获取到 <code>openid</code>,及本次登录的 会话密钥（<code>session_key</code>）。问题来了，如果用户拒绝不点击授权的话，我们是拿不到用户的信息。并且这个授权弹窗以后是不会再被调用执行了。<strong>一脸懵逼</strong>。</p>
+<a id="more"></a>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>翻阅文档没找到结果，到时发现一个新版本的API是可以处理这个情况：<code>wx.openSetting(OBJECT)</code>。</p>
 <blockquote>
 <p>基础库版本 1.1.0 开始支持，低版本需做兼容处理</p>
