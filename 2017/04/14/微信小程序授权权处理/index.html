@@ -10,7 +10,7 @@
     
     <title>
         
-            标签: 生活 | 
+            微信小程序授权权处理 | 
         
         Julytian&#39;s blog
     </title>
@@ -48,7 +48,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://julytian.coding.me">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 生活 | Julytian&#39;s blog">
+    <meta property="og:title" content="微信小程序授权权处理 | Julytian&#39;s blog">
     <meta property="og:description" content="julytian blog, write less do more">
 
     <!--[if lte IE 9]>
@@ -195,93 +195,257 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
     
-        
-            <!-- Paradox Thumbnail -->
-            <div class="post_entry-module mdl-card mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容方案-京东"><span class="post-toc-number">3.</span> <span class="post-toc-text">兼容方案(京东)</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://coding.net/help/static/img/logo.png)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492157012715&di=324bf7da20cc64ad22f65b226edad700&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D2240680583%2C254192410%26fm%3D214%26gp%3D0.jpg)">
+    
+            <p class="article-headline-p">
+                微信小程序授权权处理
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/logo.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>julytian</strong>
+        <span>4月 14, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+            <i class="material-icons" role="presentation">devices other</i>
+            <span class="visuallyhidden">devices other</span>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+            <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0ElEQVR42u3awW4bMQwE0Pz/T7fXAEHtGdJuDOntKdjYu3oK0ClJff258vrCxsbGxsbGxsbG/kj2V3x9//zP7z5+5s/v/usJjz8/WzM2Njb2Dewn//Qvlp5s1v75j9eMjY2NfQ87D61VSTB6SxKiT56AjY2NjV0CkpLm8X1sbGxs7HcHWLId7W+TMgkbGxsbe9NUetK4iT+Zx9KsHMLGxsa+jb0Z9P7Wz78838bGxsb+GPamxb8ZDOfxlpcuT9aMjY2NfSg7OTo5a+W/6shmOzYYHr7ExsbGPoidR1EbdcnGte2nYiyBjY2NfQF7NgZo2z3tE15V3mBjY2PfwM7/09/eyUez+zB7QQWGjY2NfRw7b9+3MZOPAVoqNjY29j3s/AVtXOULnQ0M6j8SNjY29qHszRLb4GkHBvnAOCl4sLGxsU9lb0KrPRzZPrkY4s6O0WNjY2MfxH7VGKANqk2zqd44bGxs7KPZ+RH5Fp8XGJtj9FF8YmNjYx/NfkebKd/QtoyZ3cfGxsY+m528uA6MkpeMAfLGFjY2NvY97FnDKL/ykW0+ym1HvNjY2Nj3sNujkG3kvLZoqQMSGxsb+2j2rIWUD2VnRUu7QXWAYWNjYx/BnrWBkvv51iTj21m8YWNjY9/JzgF5gLVP2P9JsLGxse9h58ttm/izgqdtYL2gAsPGxsY+iN0G2/8Z5bZFUR1g2NjY2EewN0VFgs+jcTaEjoYQ2NjY2Bew2583I4TZdm+OYGJjY2Ofyq5jYHHEZxU/ZSmCjY2NfQ+7DYbkoGTy/LbYSL6FjY2NfTM7D489YBZRbwkwbGxs7OPY7cg2iZBZ1O0jFhsbGxt7dtSyjcN2DXkoFkd2sLGxsS9j5+XKvrmfvzd5IzY2NvYN7Lbdk5QKsxiblUBP7mNjY2MfzZ61bJIx8Kxt1EZadJAIGxsb+1D2PRc2NjY2NjY2Njb2x1x/AXhL7dC4BMMwAAAAAElFTkSuQmCC">
+        </ul>
     
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/02/06/新的一年/">新的一年</a></p>
-    </div>
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/微信小程序/">微信小程序</a>
+    </ul>
+    
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
         
-            新篇2017年上班的第一天，不知做啥，于是我干脆在coding上面基于hexo重新搭建博客。
-距离上一次写博客已经是毕业之前，回想一下，那是羞涩的学生模样。
-毕业之前，在一个电商公司实习，本以为大公司可以学习到更多的东西，规范代码等等之类的美好。Native!!!!
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
         
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/02/06/新的一年/" target="_self">继续阅读</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/logo.jpg" width="44px" height="44px" alt="julytian's avatar">
-            </div>
-            <div>
-                <strong>julytian</strong>
-                <span>2月 06, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                <a class="post_category-link" href="/categories/生活/">生活</a>
-            </span>
+    
 
-            
-                <!-- Comment Number -->
-                &nbsp;|&nbsp;
-                <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="" data-count-type="comments"></span>
-                </span>
-            
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=微信小程序授权权处理&url=http://julytian.coding.me//2017/04/14/微信小程序授权权处理/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
 
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Julytian&#39;s blog&title=微信小程序授权权处理&summary=julytian blog, write less do more&pics=http://julytian.coding.me/img/logo.jpg&url=http://julytian.coding.me/2017/04/14/微信小程序授权权处理/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
 </div>
 
-        
-        
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class=" markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们在编写微信小程序登录页时，碰到一个大坑。一般搜索安装小程序打开页面首先都会提示你是否授权，授权就表示我们可以获取到 <code>openid</code>,及本次登录的 会话密钥（<code>session_key</code>）。问题来了，如果用户拒绝不点击授权的话，我们是拿不到用户的信息。并且这个授权弹窗以后是不会再被调用执行了。<strong>一脸懵逼</strong>。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>翻阅文档没找到结果，到时发现一个新版本的API是可以处理这个情况：<code>wx.openSetting(OBJECT)</code>。</p>
+<blockquote>
+<p>基础库版本 1.1.0 开始支持，低版本需做兼容处理</p>
+<p>微信客户端 6.5.6 版本开始支持</p>
+</blockquote>
+<p>调起客户端小程序设置界面,返回用户设置的操作结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">wx.openSetting(&#123;</div><div class="line">  <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">      res.authSetting = &#123;</div><div class="line">        <span class="string">"scope.userInfo"</span>: <span class="literal">true</span>,</div><div class="line">        <span class="string">"scope.userLocation"</span>: <span class="literal">true</span></div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这里就可以拿到用户的 <code>userinfo</code>,假如我们在全局 <code>app.js</code>里面定义了, 成功那里可以设置userinfo的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">globalData: &#123;</div><div class="line">    <span class="attr">userInfo</span>: <span class="literal">null</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="兼容方案-京东"><a href="#兼容方案-京东" class="headerlink" title="兼容方案(京东)"></a>兼容方案(京东)</h2><p>因为 <code>wx.openSetting(OBJECT)</code> 是 <strong>微信客户端 6.5.6 版本</strong> 开始支持的，所以必须选择考虑低版本用户。参考京东方案，目前只能找出如果用户拒绝授权只能告诉用户强制删除小程序重新安装去授权登录。真是日了狗了，微信小程序！！！！</p>
+<p>目前参考京东小程序的做法,拒绝授权跳到登录失败提示页：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">showModel: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    wx.showModal(&#123;</div><div class="line">      <span class="attr">content</span>: <span class="string">'你还没微信授权,不能参与商品购买'</span>,</div><div class="line">      <span class="attr">confirmColor</span>: <span class="string">'#dd2726'</span>,</div><div class="line">      <span class="attr">cancelColor</span>: <span class="string">'#dd2726'</span>,</div><div class="line">      <span class="attr">showCancel</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">confirmText</span>: <span class="string">'我知道了'</span>,</div><div class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (res.confirm) &#123;</div><div class="line">          wx.navigateTo(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">"../loginfail/loginfail"</span></div><div class="line">          &#125;);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><img src="http://7xo0zm.com1.z0.glb.clouddn.com/loginfail.png" alt="登录失败"></p>
+
     
 
     
+</div>
 
-    
-        <script>
-    var randomNum;
 
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 5; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
+                
 
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.png' + ')')
-
-        locatePost = locatePost.next();
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用多说评论 -->
+    <link rel="stylesheet" href="/css/duoshuo.min.css">
+<style>
+    #ds-thread #ds-reset .ds-post-button{
+        background-color: #0097A7 !important;
     }
-</script>
-
-    
+    #ds-wrapper #ds-reset .ds-icons-32{
+        background-color: #0097A7 !important;
+    }
+    #ds-reset .ds-highlight {
+        color: #0097A7 !important;
+    }
+</style>
+<div id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+        data-thread-key=""
+        data-url="http://julytian.coding.me/2017/04/14/微信小程序授权权处理/"
+        data-title="微信小程序授权权处理">
+    </div>
+    <!-- 多说评论框 end -->
 </div>
+
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/04/06/vue与node结合开发部署/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -474,6 +638,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

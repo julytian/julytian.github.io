@@ -4,6 +4,26 @@
   
     
     <entry>
+      <title><![CDATA[微信小程序授权权处理]]></title>
+      <url>http://julytian.coding.me/2017/04/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%88%E6%9D%83%E6%9D%83%E5%A4%84%E7%90%86/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们在编写微信小程序登录页时，碰到一个大坑。一般搜索安装小程序打开页面首先都会提示你是否授权，授权就表示我们可以获取到 <code>openid</code>,及本次登录的 会话密钥（<code>session_key</code>）。问题来了，如果用户拒绝不点击授权的话，我们是拿不到用户的信息。并且这个授权弹窗以后是不会再被调用执行了。<strong>一脸懵逼</strong>。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>翻阅文档没找到结果，到时发现一个新版本的API是可以处理这个情况：<code>wx.openSetting(OBJECT)</code>。</p>
+<blockquote>
+<p>基础库版本 1.1.0 开始支持，低版本需做兼容处理</p>
+<p>微信客户端 6.5.6 版本开始支持</p>
+</blockquote>
+<p>调起客户端小程序设置界面,返回用户设置的操作结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">wx.openSetting(&#123;</div><div class="line">  <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">      res.authSetting = &#123;</div><div class="line">        <span class="string">"scope.userInfo"</span>: <span class="literal">true</span>,</div><div class="line">        <span class="string">"scope.userLocation"</span>: <span class="literal">true</span></div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这里就可以拿到用户的 <code>userinfo</code>,假如我们在全局 <code>app.js</code>里面定义了, 成功那里可以设置userinfo的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">globalData: &#123;</div><div class="line">    <span class="attr">userInfo</span>: <span class="literal">null</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="兼容方案-京东"><a href="#兼容方案-京东" class="headerlink" title="兼容方案(京东)"></a>兼容方案(京东)</h2><p>因为 <code>wx.openSetting(OBJECT)</code> 是 <strong>微信客户端 6.5.6 版本</strong> 开始支持的，所以必须选择考虑低版本用户。参考京东方案，目前只能找出如果用户拒绝授权只能告诉用户强制删除小程序重新安装去授权登录。真是日了狗了，微信小程序！！！！</p>
+<p>目前参考京东小程序的做法,拒绝授权跳到登录失败提示页：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">showModel: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    wx.showModal(&#123;</div><div class="line">      <span class="attr">content</span>: <span class="string">'你还没微信授权,不能参与商品购买'</span>,</div><div class="line">      <span class="attr">confirmColor</span>: <span class="string">'#dd2726'</span>,</div><div class="line">      <span class="attr">cancelColor</span>: <span class="string">'#dd2726'</span>,</div><div class="line">      <span class="attr">showCancel</span>: <span class="literal">false</span>,</div><div class="line">      <span class="attr">confirmText</span>: <span class="string">'我知道了'</span>,</div><div class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (res.confirm) &#123;</div><div class="line">          wx.navigateTo(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">"../loginfail/loginfail"</span></div><div class="line">          &#125;);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><img src="http://7xo0zm.com1.z0.glb.clouddn.com/loginfail.png" alt="登录失败"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[vue与node结合开发部署]]></title>
       <url>http://julytian.coding.me/2017/04/06/vue%E4%B8%8Enode%E7%BB%93%E5%90%88%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/</url>
       <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>目前，技术圈都流行前后端分离，服务端渲染。vuejs由于其友好的中文文档，相对于react容易上手。服务端,我喜欢使用<code>nodejs</code>搭配<code>express</code> 框架配合搭建提供一个API服务，以及服务端渲染,客户端则选择 <code>vuejs</code> 开发前端页面，<code>vue-router</code>做路由，<code>vuex</code>做状态管理 , <code>axios</code> 做ajax请求。</p>
