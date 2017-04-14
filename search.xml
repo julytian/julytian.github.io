@@ -4,12 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[vue组组件开发]]></title>
-      <url>http://julytian.coding.me/2017/04/13/vue%E7%BB%84%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/</url>
-      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="vuejs组件开发"><a href="#vuejs组件开发" class="headerlink" title="vuejs组件开发"></a>vuejs组件开发</h2>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[vue与node结合开发部署]]></title>
       <url>http://julytian.coding.me/2017/04/06/vue%E4%B8%8Enode%E7%BB%93%E5%90%88%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/</url>
       <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>目前，技术圈都流行前后端分离，服务端渲染。vuejs由于其友好的中文文档，相对于react容易上手。服务端,我喜欢使用<code>nodejs</code>搭配<code>express</code> 框架配合搭建提供一个API服务，以及服务端渲染,客户端则选择 <code>vuejs</code> 开发前端页面，<code>vue-router</code>做路由，<code>vuex</code>做状态管理 , <code>axios</code> 做ajax请求。</p>
