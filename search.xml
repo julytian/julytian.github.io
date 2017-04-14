@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[webpack-dev-server解决跨域代理]]></title>
+      <url>http://julytian.coding.me/2017/04/14/webpack-dev-server%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86/</url>
+      <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>在webpack.config.js中增加proxy内容，设置代理</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">devServer: &#123;</div><div class="line">    <span class="attr">host</span> : <span class="string">'192.168.24.57'</span>,</div><div class="line">    <span class="attr">port</span>: <span class="number">3000</span>,</div><div class="line">    <span class="attr">proxy</span> : &#123;</div><div class="line">        <span class="string">'/ajax/*'</span>: &#123; <span class="comment">//只要指向/ajax/的请求，都会自动代理到下面的target的地址</span></div><div class="line">            target: <span class="string">'http://192.168.3.100'</span>, <span class="comment">//对方服务器地址</span></div><div class="line">            secure: <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>接着我们在请求ajax的时候，一定要请求当前服务器的路径，并不是请求对方服务器的路径。比如：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这里请求自己服务器，如果自己服务器有端口号，同样要加上端口号</span></div><div class="line"><span class="keyword">this</span>.$http.get(<span class="string">'http://192.168.24.57:3000/ajax/getNews.php'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n.data)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[微信小程序授权权处理]]></title>
       <url>http://julytian.coding.me/2017/04/14/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%88%E6%9D%83%E6%9D%83%E5%A4%84%E7%90%86/</url>
       <content type="html"><![CDATA[<script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们在编写微信小程序登录页时，碰到一个大坑。一般搜索安装小程序打开页面首先都会提示你是否授权，授权就表示我们可以获取到 <code>openid</code>,及本次登录的 会话密钥（<code>session_key</code>）。问题来了，如果用户拒绝不点击授权的话，我们是拿不到用户的信息。并且这个授权弹窗以后是不会再被调用执行了。<strong>一脸懵逼</strong>。</p>
